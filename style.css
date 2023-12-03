@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+  /* margin: 0px;
+  padding: 0; */
+}
+.fa {
+  color: white;
+  padding-left: 6px;
+}
+.time {
+  margin-right: auto;
+}
+.phone-taskbar {
+  font-size: 10px;
+  color: white;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+.calculator {
+  margin: auto;
+  width: 300px;
+  height: 500px;
+  /* padding: 500px 10px; */
+  background-color: black;
+  border-radius: 20px;
+}
+.display {
+  /* background-color: silver; */
+  width: 205px;
+  height: 100px;
+  margin: auto;
+  border-radius: 20px;
+}
+.butttons {
+  width: 250px;
+  height: 300px;
+  margin: auto;
+  justify-content: center;
+  display: flex;
+}
+.numbers {
+  display: flex;
+  width: 200px;
+  flex-wrap: wrap;
+  height: 100px;
+}
+.numbers > button {
+  background-color: rgb(156, 154, 154);
+  color: white;
+}
+.operators {
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: yellow; */
+  width: 60px;
+  height: 100px;
+}
+.operators > button {
+  /* flex: 0 0 0; */
+  background-color: rgb(228, 228, 129);
+  /* color: black; */
+}
+button {
+  margin: 5px;
+  border-radius: 25px;
+  border: none;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+}
+.calculator {
+  padding: 10px;
+}
+.num-zero {
+  width: 100px;
+}
+hr {
+  margin-top: 30px;
+  height: 4px;
+  background-color: white;
+  width: 80px;
+  border-radius: 5px;
+}
