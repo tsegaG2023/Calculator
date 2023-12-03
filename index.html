@@ -20,11 +20,14 @@
           <li><span class="fa fa-wifi"></span></li>
           <li><span class="fa fa-battery-2"></span></li>
         </div>
-        <div class="display"></div>
+        <div>
+          <div class="display-top"></div>
+          <div class="display"></div>
+        </div>
         <div class="butttons">
           <div class="numbers">
-            <button>AC</button>
-            <button>%</button>
+            <button class="ac">AC</button>
+            <button class="clear">Clear</button>
             <button>%</button>
             <button>1</button>
             <button>2</button>
@@ -39,16 +42,61 @@
             <button>.</button>
           </div>
           <div class="operators">
-            <button>+</button>
-            <button>-</button>
-            <button>*</button>
-            <button>/</button>
-            <button>=</button>
+            <button class="op">+</button>
+            <button class="op">-</button>
+            <button class="op">*</button>
+            <button class="op">/</button>
+            <button class="op equals">=</button>
           </div>
         </div>
         <div><hr /></div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script>
+      const buttons = document.querySelectorAll("button");
+      const display = document.querySelector(".display");
+      const displayTop = document.querySelector(".display-top");
+      let firstValue = 0;
+      let secondValue = 0;
+      buttons.forEach((button) => {
+        button.addEventListener("click", function (e) {
+          // console.log(e.target.className);
+          if (e.target.textContent == "Clear") {
+            let displayContent = display.textContent.split("");
+            displayContent.pop();
+            displayContent = displayContent.join("").toString();
+            display.textContent = "";
+            display.textContent = displayContent;
+          } else if (e.target.textContent == "AC") {
+            display.textContent = 0;
+            displayTop.textContent = "";
+          } else if (e.target.className == "op") {
+            firstValue = display.textContent;
+            console.log(firstValue);
+            displayTop.textContent = firstValue + e.target.textContent;
+            display.textContent = 0;
+          } else if (e.target.className.includes("equals")) {
+            secondValue = display.textContent;
+            console.log(secondValue);
+            displayTop.textContent += secondValue;
+            display.textContent = add(firstValue, secondValue);
+            // display.textContent = 0;
+          } else {
+            // console.log(e.target.textContent);
+            if (display.textContent == "0") {
+              display.textContent = e.target.textContent;
+            } else {
+              display.textContent += e.target.textContent;
+            }
+          }
+
+          // console.log("hey");
+        });
+
+        function add(a, b) {
+          return Number(a) + Number(b);
+        }
+      });
+    </script>
   </body>
 </html>
